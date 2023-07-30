@@ -23,6 +23,8 @@ public class OrderController {
     
     public static boolean addOrder(Order order) throws ClassNotFoundException, SQLException{
         Connection connection = DBConnection.getInstance().getConnection();
+        try{
+            connection.setAutoCommit(false);
         PreparedStatement stm = connection.prepareStatement("INSERT INTO Orders VALUES(?,?,?)");
         stm.setObject(1, order.getId());
         stm.setObject(2, order.getDate());
@@ -33,10 +35,14 @@ public class OrderController {
             if(isAddOrderDetail){
                 boolean isUpdateStock = ItemController.updateStock(order.getOrderDetail());
                 if(isUpdateStock){
+                    connection.commit();
                     return true;
                 }
             }
         }
         return false;
+        }finally{
+                connection.setAutoCommit(true);
+        }
     }
 }
