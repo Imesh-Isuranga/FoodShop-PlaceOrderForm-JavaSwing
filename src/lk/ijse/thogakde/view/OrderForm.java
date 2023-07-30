@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import lk.ijse.thogakde.controller.CustomerController;
 import lk.ijse.thogakde.controller.ItemController;
@@ -21,6 +22,8 @@ import lk.ijse.thogakde.controller.OrderController;
 import lk.ijse.thogakde.db.DBConnection;
 import lk.ijse.thogakde.model.Customer;
 import lk.ijse.thogakde.model.Item;
+import lk.ijse.thogakde.model.Order;
+import lk.ijse.thogakde.model.OrderDetail;
 
 /**
  *
@@ -82,7 +85,7 @@ public class OrderForm extends javax.swing.JFrame {
         tblCart = new javax.swing.JTable();
         jLabel15 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        btnPlaceOrder = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -223,11 +226,11 @@ public class OrderForm extends javax.swing.JFrame {
         lblTotal.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
         lblTotal.setText("0.00");
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jButton3.setText("Place Oder");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnPlaceOrder.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        btnPlaceOrder.setText("Place Oder");
+        btnPlaceOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnPlaceOrderActionPerformed(evt);
             }
         });
 
@@ -255,7 +258,7 @@ public class OrderForm extends javax.swing.JFrame {
                                 .addGap(35, 35, 35)
                                 .addComponent(lblTotal)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3))
+                                .addComponent(btnPlaceOrder))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,7 +366,7 @@ public class OrderForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(lblTotal)
-                    .addComponent(jButton3))
+                    .addComponent(btnPlaceOrder))
                 .addGap(20, 20, 20))
         );
 
@@ -425,9 +428,32 @@ public class OrderForm extends javax.swing.JFrame {
         dtm.removeRow(tblCart.getSelectedRow());
     }//GEN-LAST:event_btnRemoveActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
+        try {
+            String orderId = lblId.getText();
+            String orderDate = lblDate.getText();
+            String cusId = cmbCusId.getSelectedItem().toString();
+            
+            ArrayList<OrderDetail> orderDeailList = new ArrayList<>();
+            DefaultTableModel dtm = (DefaultTableModel) tblCart.getModel();
+            
+            for (int i = 0; i < dtm.getRowCount(); i++) {
+                String itemCode = (String)dtm.getValueAt(i, 0);
+                int QTY = (int)dtm.getValueAt(i, 3);
+                double unitPrice = (double)dtm.getValueAt(i, 2);
+                orderDeailList.add(new OrderDetail(orderId,itemCode,QTY,unitPrice));
+            }
+            Order order = new Order(orderId,orderDate,cusId,orderDeailList);
+            Boolean isAdded = OrderController.addOrder(order);
+            if(isAdded){
+                JOptionPane.showMessageDialog(this, "Added Success...");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(OrderForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
     private void cmbCusIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCusIdActionPerformed
         try {
@@ -496,10 +522,10 @@ public class OrderForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnPlaceOrder;
     private javax.swing.JButton btnRemove;
     private javax.swing.JComboBox<String> cmbCusId;
     private javax.swing.JComboBox<String> cmbItemCode;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
