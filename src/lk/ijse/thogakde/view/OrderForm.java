@@ -98,45 +98,57 @@ public class OrderForm extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel3.setText("Order Id : ");
 
+        lblId.setBackground(new java.awt.Color(153, 255, 153));
         lblId.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lblId.setText("D-001");
 
         lblDate.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lblDate.setText("2021-10-10");
 
+        cmbCusId.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cmbCusId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCusIdActionPerformed(evt);
             }
         });
 
+        jLabel6.setBackground(new java.awt.Color(153, 255, 153));
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 153, 153));
         jLabel6.setText("Customer Name");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 51, 102));
         jLabel7.setText("Customer Id");
 
+        jLabel8.setBackground(new java.awt.Color(153, 255, 153));
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 153, 153));
         jLabel8.setText("Customer Salary");
 
+        jLabel9.setBackground(new java.awt.Color(153, 255, 153));
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 153, 153));
         jLabel9.setText("Customer Address");
 
-        txtSalary.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtSalary.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        txtSalary.setForeground(new java.awt.Color(0, 51, 255));
         txtSalary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSalaryActionPerformed(evt);
             }
         });
 
-        txtName.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtName.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        txtName.setForeground(new java.awt.Color(0, 51, 255));
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
             }
         });
 
-        txtAddress.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtAddress.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        txtAddress.setForeground(new java.awt.Color(0, 51, 255));
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAddressActionPerformed(evt);
@@ -144,48 +156,62 @@ public class OrderForm extends javax.swing.JFrame {
         });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 51, 102));
         jLabel10.setText("Item Code");
 
+        cmbItemCode.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cmbItemCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbItemCodeActionPerformed(evt);
             }
         });
 
+        jLabel11.setBackground(new java.awt.Color(153, 255, 153));
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 153, 153));
         jLabel11.setText("Description");
 
-        txtDescription.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtDescription.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        txtDescription.setForeground(new java.awt.Color(0, 51, 255));
         txtDescription.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDescriptionActionPerformed(evt);
             }
         });
 
+        jLabel12.setBackground(new java.awt.Color(153, 255, 153));
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 153, 153));
         jLabel12.setText("Unit Price");
 
-        txtUnitPrice.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtUnitPrice.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        txtUnitPrice.setForeground(new java.awt.Color(0, 51, 255));
         txtUnitPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUnitPriceActionPerformed(evt);
             }
         });
 
+        jLabel13.setBackground(new java.awt.Color(153, 255, 153));
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 153, 153));
         jLabel13.setText("QTY");
 
-        txtQTY.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtQTY.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        txtQTY.setForeground(new java.awt.Color(0, 51, 255));
         txtQTY.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtQTYActionPerformed(evt);
             }
         });
 
+        jLabel14.setBackground(new java.awt.Color(153, 255, 153));
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 153, 153));
         jLabel14.setText("QTY On Hand");
 
-        txtQTYOnHand.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtQTYOnHand.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        txtQTYOnHand.setForeground(new java.awt.Color(0, 51, 255));
         txtQTYOnHand.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtQTYOnHandActionPerformed(evt);
@@ -208,7 +234,8 @@ public class OrderForm extends javax.swing.JFrame {
             }
         });
 
-        tblCart.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tblCart.setBackground(new java.awt.Color(204, 204, 204));
+        tblCart.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         tblCart.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -217,6 +244,7 @@ public class OrderForm extends javax.swing.JFrame {
                 "Code", "Description", "Unit Price", "QTY", "Total"
             }
         ));
+        tblCart.setGridColor(new java.awt.Color(204, 255, 204));
         jScrollPane1.setViewportView(tblCart);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 25)); // NOI18N
